@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = 'index.php';
+$route['default_controller'] = 'todo';
 //$route['(:any)'] = 'pages/view/$1';
 
 
