@@ -38,10 +38,8 @@
 |
 */
 
-$route['todo/(:any)'] = 'todo/view/$1';
-$route['todo'] = 'todo';
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'pages/view';
+$route['default_controller'] = 'index.php';
+//$route['(:any)'] = 'pages/view/$1';
 
 
 /* End of file routes.php */

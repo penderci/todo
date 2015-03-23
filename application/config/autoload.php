@@ -51,8 +51,8 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
-
-$autoload['libraries'] = array();
+/*aangepast CP 23/3/2015*/
+$autoload['libraries'] = array('database');
 
 
 /*
