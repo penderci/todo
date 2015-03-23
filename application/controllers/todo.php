@@ -6,7 +6,10 @@
  * Time: 10:00 PM
  */
 class Todo extends CI_Controller{
+
     public function index(){
-        $this->load->view('todo_view');
+        $data['todos'] = $this->Todo_model->get_todos();
+
+        $this->load->view('todo_view',$data);
     }
 }

@@ -1,15 +1,13 @@
 <?php
-class News_model extends CI_Model {
-
-    public function __construct()
-    {
-        $this->load->database();
-    }
-
-    public function get_todo()
-    {
-        $query = $this->db->get_where('todo');
-        return $query->row_array();
+/**
+ * Created by PhpStorm.
+ * User: Penders
+ * Date: 3/23/2015
+ * Time: 11:31 PM
+ */
+class Todo_model extends CI_Model{
+    public function get_todos(){
+       $query = $this->db->query("SELECT * FROM todo");
+        return $query->result();
     }
 }
-
