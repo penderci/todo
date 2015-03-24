@@ -12,7 +12,7 @@ class Todo extends CI_Controller
     {
         $data['todos'] = $this->Todo_model->get_todos();
 
-        $this->load->view('todo_view', $data);
+        $this->load->view('/todo/todo_view', $data);
     }
 
     public function create()
