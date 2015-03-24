@@ -1,9 +1,21 @@
-<div id='container'>
-    <h1>To Do Application</h1>
+<?php
+echo validation_errors();
 
-    <h2>Add a task :</h2>
-    <?php echo form_open('create_task'); ?>
-    <?php echo form_label('Task','task') . form_input('task'); ?>
-    <?php echo form_submit('submit', 'Add task'); ?>
-    <?php echo form_close(); ?>
-</div>
+echo form_open("todo/validate");
+
+echo form_label("To Do : ","description");
+
+$data = array(
+    "name" => "description",
+    "id" => "description",
+    "value" => ""
+);
+
+echo form_input($data);
+
+echo form_submit("TodoSubmit","Opslaan");
+
+
+echo form_close();
+
+?>

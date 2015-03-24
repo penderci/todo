@@ -3,14 +3,23 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Mijn ToDo</title>
-    <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
+<h1>To Do Lijst</h1>
+
+<ul>
+
 
 <?php foreach ($todos as $todo) : ?>
-    <?php echo $todo->description . ' ' . $todo->finished . '</br>'?>
+    <li>
+        <input type="checkbox" name="finished" value="1" <?php echo ((  $todo->finished == 1) ? 'checked="checked"' : '') ?> disabled="disabled" >
+    <?php echo ' ' . $todo->description . '</br>'; ?>
+    </li>
 <?php endforeach; ?>
+
+</ul>
+<a href="<?php echo base_url();?>todo/create">Nieuwe Todo</a>
 
 </body>
 </html>

@@ -12,4 +12,18 @@ class Todo extends CI_Controller{
 
         $this->load->view('todo_view',$data);
     }
+
+    public function create(){
+        $this->load->view('/todo/create');
+    }
+
+    public function validate(){
+        $this->form_validation->set_rules("description","To Do", "required");
+
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('/todo/create');
+        } else {
+
+        }
+    }
 }
