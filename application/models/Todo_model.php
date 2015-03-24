@@ -10,4 +10,10 @@ class Todo_model extends CI_Model{
        $query = $this->db->query("SELECT * FROM todo");
         return $query->result();
     }
+
+    public function insert($description){
+        $query_str = "INSERT INTO todo (description) VALUES (?)";
+
+        $this->db->query($query_str, $description);
+    }
 }
