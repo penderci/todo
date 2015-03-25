@@ -10,6 +10,7 @@
 
 <ul>
 
+<!--<?php //print_r($this->session->all_userdata()) ?>   -->
 
 <?php foreach ($todos as $todo) : ?>
     <li>
@@ -20,6 +21,8 @@
 
 </ul>
 <a href="<?php echo base_url();?>todo/create">Nieuwe Todo</a>
+<p></p>
+<a href="<?php echo base_url();?>login/logout">Log Uit</a>
 
 </body>
 </html>

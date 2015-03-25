@@ -23,11 +23,21 @@ class Login extends CI_Controller
 
     public function validate_credentials(){
         if($this->User_model->can_login()){
+            $data = array(
+                'email'=>$this->input->post('email'),
+                'is_logged_in'=> 1
+            );
+            $this->session->set_userdata($data);
             return true;
         } else {
             $this->form_validation->set_message('validate_credentials','Incorrect username/password');
             return false;
         }
+    }
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect(base_url().'login');
     }
 
 }

@@ -10,14 +10,22 @@ class Todo extends CI_Controller
 
     public function index()
     {
-        $data['todos'] = $this->Todo_model->get_todos();
+        if ($this->session->userdata('is_logged_in')) {
+            $data['todos'] = $this->Todo_model->get_todos();
 
-        $this->load->view('/todo/todo_view', $data);
+            $this->load->view('/todo/todo_view', $data);
+        } else {
+            redirect(base_url().'login');
+        }
     }
 
     public function create()
     {
-        $this->load->view('/todo/create');
+        if ($this->session->userdata('is_logged_in')) {
+            $this->load->view('/todo/create');
+        } else {
+            redirect(base_url().'login');
+        }
     }
 
     public function validate()
