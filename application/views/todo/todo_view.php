@@ -21,6 +21,7 @@
 
 </ul>
 <a href="<?php echo base_url();?>todo/create">Nieuwe Todo</a>
+<a href="<?php echo base_url();?>users">Usermanagement</a>
 <p></p>
 <a href="<?php echo base_url();?>login/logout">Log Uit</a>
 

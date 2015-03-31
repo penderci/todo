@@ -14,6 +14,7 @@ class Todo extends CI_Controller
             $data['todos'] = $this->Todo_model->get_todos();
 
             $this->load->view('/todo/todo_view', $data);
+
         } else {
             redirect(base_url().'login');
         }
@@ -39,7 +40,8 @@ class Todo extends CI_Controller
 
             $this->Todo_model->insert($description);
 
-            $this->index();
+            redirect (base_url().'todo');
+            //$this->index();
         }
     }
 }
