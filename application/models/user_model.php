@@ -25,7 +25,8 @@ class User_model extends CI_Model{
     }
 
     public function update_user($data){
-        $this->db->where('id',1);
+        $data['password'] = md5($data['password']);
+        $this->db->where('id',$data['id']);
         $this->db->update('users',$data);
     }
 
@@ -34,5 +35,17 @@ class User_model extends CI_Model{
         $this->db->where('id',$this->uri->segment(3));
         $this->db->delete('users');
 
+    }
+
+    function get_table() {
+        $table = "users";
+        return $table;
+    }
+
+    function get_where($id) {
+        $table = $this->get_table();
+        $this->db->where('id', $id);
+        $query=$this->db->get($table);
+        return $query;
     }
 }
