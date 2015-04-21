@@ -1,14 +1,18 @@
-<?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Users extends CI_Controller
 {
 
     public function index()
     {
         if ($this->session->userdata('is_logged_in')) {
-            $data = $this->get_data_from_post();
-            $data['users'] = $this->User_model->get_users();
+            if ($this->session->userdata('usertype') == '2' || $this->session->userdata('usertype') == '3') {
+                $data = $this->get_data_from_post();
+                $data['users'] = $this->User_model->get_users();
 
-            $this->load->view('/users/users_view',$data);
+                $this->load->view('/users/users_view', $data);
+            } else {
+                redirect (base_url().'todo');
+            }
 
         } else {
             redirect(base_url().'login');

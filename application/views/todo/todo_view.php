@@ -21,7 +21,11 @@
 
 </ul>
 <a href="<?php echo base_url();?>todo/create">Nieuwe Todo</a>
+
+<?php if ($this->session->userdata('usertype') == '2' || $this->session->userdata('usertype') == '3') { ?>
 <a href="<?php echo base_url();?>users">Usermanagement</a>
+<?php } ?>
+
 <p></p>
 <a href="<?php echo base_url();?>login/logout">Log Uit</a>
 

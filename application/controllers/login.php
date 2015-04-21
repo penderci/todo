@@ -1,4 +1,4 @@
-<?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Login extends CI_Controller
 {
 
@@ -23,9 +23,11 @@ class Login extends CI_Controller
 
     public function validate_credentials(){
         if($this->User_model->can_login()){
+            $usertype = $this->User_model->get_usertype();
             $data = array(
                 'email'=>$this->input->post('email'),
-                'is_logged_in'=> 1
+                'is_logged_in'=> 1,
+                'usertype'=>$usertype
             );
             $this->session->set_userdata($data);
             return true;

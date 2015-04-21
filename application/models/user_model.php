@@ -1,5 +1,6 @@
-<?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class User_model extends CI_Model{
+
     public function can_login(){
         $this->db->where('email',$this->input->post('email'));
         $this->db->where('password',md5($this->input->post('password')));
@@ -11,6 +12,20 @@ class User_model extends CI_Model{
         } else {
             return false;
         }
+    }
+
+    public function get_usertype(){
+        $this->db->where('email',$this->input->post('email'));
+
+        $query = $this->db->get('users');
+
+        $result = $query->result();
+
+       /* print_r($result);
+        echo($result[0]->usertype_id);
+        die();*/
+
+        return $result[0]->usertype_id;
     }
 
     public function get_users(){
