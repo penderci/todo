@@ -12,8 +12,15 @@ class Todo_model extends CI_Model{
     }
 
     public function insert($description){
-        $query_str = "INSERT INTO todo (description) VALUES (?)";
+        $data = array(
+            'description' => $description ,
+            'user_id' => USERID
+        );
 
-        $this->db->query($query_str, $description);
+        $this->db->insert('todo', $data);
+
+        // $query_str = "INSERT INTO todo (description,user_id) VALUES (?,?)";
+
+       // $this->db->query($query_str, $description, USERID);
     }
 }

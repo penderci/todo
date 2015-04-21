@@ -12,6 +12,7 @@
 echo validation_errors();
 
 echo form_open('users/update');
+
 echo 'Email: ';
 echo form_input('email',$email);
 

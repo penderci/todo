@@ -13,14 +13,12 @@ class MY_Controller extends CI_Controller
 
         $result = $query->result();
 
-        //print_r($result);
-        //die();
-
         if ($query->num_rows() == 1) {
             define('USERTYPE', $result[0]->usertype_id);
-        } else {
+            define('USERID', $result[0]->id);
+        } /*else {
             define('USERTYPE', 0);
-        }
+        }*/
     }
 
 }
