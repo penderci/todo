@@ -2,6 +2,11 @@
 class Login extends CI_Controller
 {
 
+    function __construct()
+    {
+        parent::__construct();
+    }
+
     public function index()
     {
         $this->load->view('/login/login_view');
@@ -23,11 +28,12 @@ class Login extends CI_Controller
 
     public function validate_credentials(){
         if($this->User_model->can_login()){
-            $usertype = $this->User_model->get_usertype();
+            //$usertype = $this->User_model->get_usertype();*/
+
             $data = array(
                 'email'=>$this->input->post('email'),
-                'is_logged_in'=> 1,
-                'usertype'=>$usertype
+                'is_logged_in'=> 1 //,
+               //'usertype'=>$usertype
             );
             $this->session->set_userdata($data);
             return true;

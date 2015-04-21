@@ -12,6 +12,8 @@
 
 <!--<?php //print_r($this->session->all_userdata()) ?>   -->
 
+
+
 <?php foreach ($todos as $todo) : ?>
     <li>
         <input type="checkbox" name="finished" value="1" <?php echo ((  $todo->finished == 1) ? 'checked="checked"' : '') ?> disabled="disabled" >
@@ -22,7 +24,7 @@
 </ul>
 <a href="<?php echo base_url();?>todo/create">Nieuwe Todo</a>
 
-<?php if ($this->session->userdata('usertype') == '2' || $this->session->userdata('usertype') == '3') { ?>
+<?php if (USERTYPE == '2' || USERTYPE == '3') { ?>
 <a href="<?php echo base_url();?>users">Usermanagement</a>
 <?php } ?>
 

@@ -7,14 +7,20 @@ class User_model extends CI_Model{
 
         $query = $this->db->get('users');
 
+      //  $result = $query->result();
+
         if ($query->num_rows()== 1) {
+           // define('USERTYPE', $result[0]->usertype_id);
+            /*echo 'usertype gezet';
+            echo USERTYPE;
+            die();*/
             return true;
         } else {
             return false;
         }
     }
 
-    public function get_usertype(){
+   /* public function get_usertype(){
         $this->db->where('email',$this->input->post('email'));
 
         $query = $this->db->get('users');
@@ -25,8 +31,10 @@ class User_model extends CI_Model{
         echo($result[0]->usertype_id);
         die();*/
 
-        return $result[0]->usertype_id;
-    }
+
+
+        /*return $result[0]->usertype_id;
+    }*/
 
     public function get_users(){
         $query = $this->db->query("SELECT * FROM users");
